@@ -1,6 +1,9 @@
-# React + Vite
+# React + Vite + TailwindCSS + Material Tailwind
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Installation Guides are here for installing TailwindCSS + Material Tailwind
+
+The setup also includes installation guides and basic setup for React Router.
 
 Currently, two official plugins are available:
 
