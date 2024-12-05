@@ -1,0 +1,154 @@
+
+1. Install Vite+React
+npm create vite@latest
+- React
+- Javascript
+
+2. Install Tailwind Css with Vite
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+Configure tailwind.config.js
+- add this inside content:[]
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}"
+
+Add this inside index.css
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;   
+
+Test tailwindcss if working:
+      <div className="flex flex-col w-full h-screen  justify-center items-center space-y-20 mt-20">
+        <div className="flex">
+          <div className="mr-20">
+            <h1 class="text-4xl font-bold text-red-800">This is an H1</h1>
+          </div>
+          <div>
+            <h2 class="text-3xl font-bold text-green-800">This is an H2</h2>
+          </div>
+        </div>
+        <h2 class="text-3xl font-semibold text-blue-700">This is an H2</h2>
+        <h3 class="text-2xl font-medium text-yellow-600">This is an H3</h3>
+        <h4 class="text-xl text-gray-500">This is an H4</h4>
+        <h5 class="text-lg text-gray-400">This is an H5</h5>
+        <h6 class="text-base text-gray-300">This is an H6</h6>
+      </div>
+
+3. Install Material Tailwind
+npm i @material-tailwind/react
+
+Configure tailwind.config.js
+/** @type {import('tailwindcss').Config} */
++ const withMT = require("@material-tailwind/react/utils/withMT");
+- export default {} //replace this line to this line below:
++ module.exports = withMT({
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
++ });
+
+Add Material Tailwind Context Provider
+- ThemeProvider inside main.jsx
+
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { ThemeProvider } from "@material-tailwind/react";
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
++    <ThemeProvider>
+      <App />
++    </ThemeProvider>
+  </StrictMode>
+);
+
+- Test Material Tailwind Components if working
+- Test this, check for user input display, margin sizing text colors 
+  and button and input field effects if working:
+
+      <Card color="transparent" shadow={false}>
+        <Typography variant="h4" color="blue-gray">
+          Sign Up
+        </Typography>
+        <Typography color="gray" className="mt-1 font-normal">
+          Nice to meet you! Enter your details to register.
+        </Typography>
+        <form className="mt-3 mb-2 w-80 max-w-screen-lg sm:w-96">
+          <div className="mb-8 flex flex-col gap-6">
+            <Typography variant="h6" color="blue-gray" className="-mb-3">
+              Your Name
+            </Typography>
+            <Input
+              size="lg"
+              placeholder="name@mail.com"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              labelProps={{
+                className: "before:content-none after:content-none",
+              }}
+            />
+            <Typography variant="h6" color="blue-gray" className="-mb-3">
+              Your Email
+            </Typography>
+            <Input
+              size="lg"
+              placeholder="name@mail.com"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              labelProps={{
+                className: "before:content-none after:content-none",
+              }}
+            />
+            <Typography variant="h6" color="blue-gray" className="-mb-3">
+              Password
+            </Typography>
+            <Input
+              type="password"
+              size="lg"
+              placeholder="********"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              labelProps={{
+                className: "before:content-none after:content-none",
+              }}
+            />
+          </div>
+          <Checkbox
+            label={
+              <Typography
+                variant="small"
+                color="gray"
+                className="flex items-center font-normal"
+              >
+                I agree the
+                <a
+                  href="#"
+                  className="font-medium transition-colors hover:text-gray-900"
+                >
+                  &nbsp;Terms and Conditions
+                </a>
+              </Typography>
+            }
+            containerProps={{ className: "-ml-2.5" }}
+          />
+          <Button className="mt-6" fullWidth>
+            sign up
+          </Button>
+          <Typography color="gray" className="mt-4 text-center font-normal">
+            Already have an account?{" "}
+            <a href="#" className="font-medium text-gray-900">
+              Sign In
+            </a>
+          </Typography>
+        </form>
+      </Card>
+
+4. Install React Router DOM
+npm install react-dom
+npm i -D react-router-dom@latest
+
+- Imports
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
