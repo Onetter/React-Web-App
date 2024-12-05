@@ -17,9 +17,9 @@ const Layout = () => {
         </div>
       </nav>
 
-      <view className="flex flex-col w-full h-screen justify-center items-center">
+      <div className="flex flex-col w-full h-screen justify-center items-center">
         <Outlet />
-      </view>
+      </div>
     </div>
   );
 };
