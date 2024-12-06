@@ -7,9 +7,11 @@ import AuthForm from "../components/AuthForm";
 
 const AuthPage = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
+  const [isNewUser, setIsNewUser] = useState(false);
 
   const handleSignUp = (e) => {
     e.preventDefault();
+    setIsNewUser(true);
     alert("Clicked");
   };
 
@@ -27,13 +29,14 @@ const AuthPage = () => {
   };
 
   return (
-    <Card className="flex flex-col justify-start items-center w-96 h-96">
+    <Card className="flex flex-col justify-start items-center w-96 h-96 border border-lined border-gray-500 rounded-lg shadow-none">
       <Typography className="mt-8 font-bold text-2xl">Login</Typography>
       <AuthForm
         formData={formData}
         onInputChange={handleInputChange}
         onSubmit={handleSubmit}
         SignUp={handleSignUp}
+        isNewUser={isNewUser}
       />
     </Card>
   );

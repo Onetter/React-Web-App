@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Typography, Input } from "@material-tailwind/react";
 
-const AuthForm = ({ formData, onInputChange, onSubmit, SignUp }) => {
+const AuthForm = ({ formData, onInputChange, onSubmit, SignUp, isNewUser }) => {
   return (
     <form action="" onSubmit={onSubmit} className="mt-8 space-y-5">
       <div className="w-72">
@@ -30,12 +30,13 @@ const AuthForm = ({ formData, onInputChange, onSubmit, SignUp }) => {
       </div>
       <div className="flex flex-row mt-8 space-x-2 justify-center items-center">
         <Typography className="text-sm">
-          Don't have an account?{" "}
+          Don't have an account?
           <a
             href="#"
             className="text-gray-90 font-bold hover:underline"
             onClick={SignUp}
           >
+            {" "}
             Sign Up
           </a>
         </Typography>
