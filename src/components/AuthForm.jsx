@@ -17,7 +17,7 @@ const AuthForm = ({
             <Input
               size="lg"
               label="First Name"
-              name="firstname"
+              name="first_name"
               value={formData.first_name}
               onChange={onInputChange}
             />
@@ -26,7 +26,7 @@ const AuthForm = ({
             <Input
               size="lg"
               label="Last Name"
-              name="lastname"
+              name="last_name"
               value={formData.last_name}
               onChange={onInputChange}
             />
@@ -65,7 +65,6 @@ const AuthForm = ({
             className="text-gray-90 font-bold hover:underline"
             onClick={handleUserCategory}
           >
-            {" "}
             Sign Up
           </a>
         </Typography>
